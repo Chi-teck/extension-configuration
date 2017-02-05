@@ -8,7 +8,7 @@ Tracked configuration items should be defined in _info.yml_ file under "config" 
 ```yml
 name: Example
 type: module
-description: 'Example description.'
+description: Example description.
 version: 8.x-1.0-dev
 core: 8.x
 config:
