@@ -26,7 +26,7 @@ Name | Alias | Description
 ----|-----|-----------
 extension-configuration-export  | ec-export | Export configuration to extension config directory.
 extension-configuration-import  | ec-import | Import configuration from extension config directory.
-extension-configuration-delete | ec-delete | Delete extension configuration from active storage.
+extension-configuration-delete | ec-delete | Delete configuration from active storage.
 extension-configuration-clean | ec-clean | Remove untracked yml files from the config directory.
 extension-configuration-status | ec-status | Display configuration status.
 
