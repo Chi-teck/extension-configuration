@@ -32,14 +32,14 @@ function extension_configuration_drush_command() {
     'aliases' => ['ec-delete'],
   ];
 
-  $items['extension-configuration-status'] = $defaults + [
-    'description' => 'Display configuration status.',
-    'aliases' => ['ec-status'],
-  ];
-
   $items['extension-configuration-clean'] = $defaults + [
     'description' => 'Remove untracked yml files from the config directory.',
     'aliases' => ['ec-clean'],
+  ];
+
+  $items['extension-configuration-status'] = $defaults + [
+    'description' => 'Display configuration status.',
+    'aliases' => ['ec-status'],
   ];
 
   return $items;
@@ -69,19 +69,6 @@ function drush_extension_configuration_delete($extension) {
 /**
  * Drush command callback.
  */
-function drush_extension_configuration_status($extension) {
-  drush_extension_configuration_execute($extension, 'status', function (array $result) {
-    drush_extension_configuration_print_status($result);
-    if (count($result['messages']) > 0) {
-      drush_print();
-      drush_extension_configuration_log_result($result);
-    }
-  });
-}
-
-/**
- * Drush command callback.
- */
 function drush_extension_configuration_clean($extension) {
   drush_extension_configuration_execute($extension, 'findUntrackedFiles', function (array $result) {
     if (count($result['files']) > 0) {
@@ -94,6 +81,19 @@ function drush_extension_configuration_clean($extension) {
           file_unmanaged_delete($file->uri);
         }
       }
+    }
+  });
+}
+
+/**
+ * Drush command callback.
+ */
+function drush_extension_configuration_status($extension) {
+  drush_extension_configuration_execute($extension, 'status', function (array $result) {
+    drush_extension_configuration_print_status($result);
+    if (count($result['messages']) > 0) {
+      drush_print();
+      drush_extension_configuration_log_result($result);
     }
   });
 }
@@ -169,4 +169,39 @@ function drush_extension_configuration_print_status(array $result) {
   }
 
   drush_print_table($rows, TRUE);
+}
+
+/**
+ * Command argument complete callback.
+ */
+function extension_configuration_extension_configuration_export_complete() {
+  return pm_complete_extensions();
+}
+
+/**
+ * Command argument complete callback.
+ */
+function extension_configuration_extension_configuration_import_complete() {
+  return pm_complete_extensions();
+}
+
+/**
+ * Command argument complete callback.
+ */
+function extension_configuration_extension_configuration_delete_complete() {
+  return pm_complete_extensions();
+}
+
+/**
+ * Command argument complete callback.
+ */
+function extension_configuration_extension_configuration_clean_complete() {
+  return pm_complete_extensions();
+}
+
+/**
+ * Command argument complete callback.
+ */
+function extension_configuration_extension_configuration_status_complete() {
+  return pm_complete_extensions();
 }

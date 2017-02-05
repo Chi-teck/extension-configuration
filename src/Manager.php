@@ -192,6 +192,29 @@ class Manager {
   }
 
   /**
+   * Finds untracked configuration files.
+   */
+  public function findUntrackedFiles($extension) {
+
+    $type = $this->getExtensionType($extension);
+    $install_storage = new InstallStorage();
+    $info_config = $this->getInfoConfig($type, $extension);
+
+    $result['files'] = [];
+    foreach ($this->getConfigTypes() as $config_type => $directory) {
+      $config_path = DRUPAL_ROOT . '/' . drupal_get_path($type, $extension) . '/' . $directory;
+      $files = file_scan_directory($config_path, '/.*\.yml$/');
+      foreach ($files as $file) {
+        if (!in_array($file->name, $info_config[$config_type])) {
+          $result['files'][] = $file;
+        }
+      }
+    }
+
+    return $result;
+  }
+
+  /**
    * Displays configuration status.
    */
   public function status($extension) {
@@ -251,29 +274,6 @@ class Manager {
           $config_type,
           $state,
         ];
-      }
-    }
-
-    return $result;
-  }
-
-  /**
-   * Finds untracked configuration files.
-   */
-  public function findUntrackedFiles($extension) {
-
-    $type = $this->getExtensionType($extension);
-    $install_storage = new InstallStorage();
-    $info_config = $this->getInfoConfig($type, $extension);
-
-    $result['files'] = [];
-    foreach ($this->getConfigTypes() as $config_type => $directory) {
-      $config_path = DRUPAL_ROOT . '/' . drupal_get_path($type, $extension) . '/' . $directory;
-      $files = file_scan_directory($config_path, '/.*\.yml$/');
-      foreach ($files as $file) {
-        if (!in_array($file->name, $info_config[$config_type])) {
-          $result['files'][] = $file;
-        }
       }
     }
 
