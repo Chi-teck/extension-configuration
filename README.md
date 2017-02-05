@@ -3,7 +3,7 @@
 The module offers a set of Drush commands for managing extension configuration.
 
 ## Usage
-Configuration items to be synced should be defined in _.info.yml_ file under "config" section as follows:
+Configuration items to be synced should be defined in _info.yml_ file under "config" section as follows:
 
 ```yml
 name: Example
@@ -34,4 +34,4 @@ extension-configuration-clean | ec-clean | Remove untracked yml files from the c
 Inspired by [Configuration development](https://www.drupal.org/project/config_devel) module.
 
 ## License
-GNU General Public License, version 2
+GNU General Public License, version 2.
