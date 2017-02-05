@@ -1,6 +1,6 @@
 # Extension configuration Drupal module
 
-A set of Drush commands for managing extension configuration. Inspired by [Configuration development](https://www.drupal.org/project/config_devel) module.
+The module offers a set of Drush commands for managing extension configuration.
 
 ## Usage
 Configuration items to be synced should be defined in _.info.yml_ file under "config" section as follows:
@@ -29,6 +29,9 @@ extension-configuration-import  | ec-import | Import configuration from extensio
 extension-configuration-delete | ec-delete | Delete extension configuration from active storage.
 extension-configuration-status | ec-status | Display configuration status.
 extension-configuration-clean | ec-clean | Remove untracked yml files from the config directory.
+
+## Credits
+Inspired by [Configuration development](https://www.drupal.org/project/config_devel) module.
 
 ## License
 GNU General Public License, version 2
