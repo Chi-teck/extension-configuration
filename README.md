@@ -3,7 +3,7 @@
 The module offers a set of Drush commands for managing extension configuration.
 
 ## Usage
-Configuration items to be synced should be defined in _info.yml_ file under "config" section as follows:
+Tracked configuration items should be defined in _info.yml_ file under "config" section as follows:
 
 ```yml
 name: Example
