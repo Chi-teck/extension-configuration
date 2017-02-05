@@ -1,0 +1,4 @@
+services:
+  extension_configuration.manager:
+    class: Drupal\extension_configuration\Manager
+    arguments: ['@config.factory', '@config.manager', '@info_parser']

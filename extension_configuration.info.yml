@@ -1,0 +1,6 @@
+name: Extension configuration
+type: module
+description: Drush command to manage extension confuguration.
+package: custom
+version: 8.x-1.0-dev
+core: 8.x
