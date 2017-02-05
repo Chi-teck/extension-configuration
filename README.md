@@ -31,7 +31,7 @@ extension-configuration-clean | ec-clean | Remove untracked yml files from the c
 extension-configuration-status | ec-status | Display configuration status.
 
 ## Credits
-Inspired by [Configuration development](https://www.drupal.org/project/config_devel) module.
+The project inspired by [Configuration development](https://www.drupal.org/project/config_devel) module.
 
 ## License
 GNU General Public License, version 2.
