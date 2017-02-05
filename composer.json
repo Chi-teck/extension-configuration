@@ -2,5 +2,6 @@
   "name": "chi-teck/extension_configuration",
   "type": "drupal-module",
   "description": "Drush commands for managing extension configuration.",
-  "keywords": ["Drupal"]
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+"
 }
