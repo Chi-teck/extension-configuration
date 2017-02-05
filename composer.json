@@ -1,0 +1,6 @@
+{
+  "name": "drupal/extension_configuration",
+  "type": "drupal-module",
+  "description": "Drush commands for managing extension configuration.",
+  "keywords": ["Drupal"]
+}
