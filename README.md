@@ -20,7 +20,7 @@ config:
     - image.style.max_1024x1024
 ```
 
-### Available Drush commands.
+### Available Drush commands
 
 Name | Alias | Description
 ----|-----|-----------
