@@ -263,7 +263,7 @@ class Manager {
           continue;
         }
         $active_data = $active_config->get();
-        unset($active_data['uuid']);
+        unset($active_data['uuid'], $active_data['_core']);
 
         $state = $active_data === $stored_data
           ? self::CONFIG_STATUS_DEFAULT
