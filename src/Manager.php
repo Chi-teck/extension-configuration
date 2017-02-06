@@ -123,6 +123,12 @@ class Manager {
 
         $content = file_get_contents($file_path);
         $data = $install_storage->decode($content);
+        $active_data = $this->configFactory->get($config_name)->get();
+        unset($active_data['uuid']);
+
+        if ($data === $active_data) {
+          continue;
+        }
 
         $entity_type_id = $this->configManager->getEntityTypeIdByName($config_name);
         if ($entity_type_id) {
