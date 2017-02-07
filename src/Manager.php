@@ -84,7 +84,7 @@ class Manager {
         unset($data['_core'], $data['uuid']);
 
         $encoded_data = $install_storage->encode($data);
-        if ($encoded_data != file_get_contents($file_path)) {
+        if (is_readable($file_path) && $encoded_data != file_get_contents($file_path)) {
           file_put_contents($file_path, $encoded_data);
           $result['messages'][] = [
             t('Exported @config.', ['@config' => $config_name]),
