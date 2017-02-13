@@ -299,9 +299,6 @@ class Manager {
     elseif (\Drupal::service('theme_handler')->themeExists($extension)) {
       return 'theme';
     }
-    elseif (\Drupal::installProfile() == $extension) {
-      return 'profile';
-    }
     else {
       throw new \InvalidArgumentException(sprintf('Extension %s is not enabled.', $extension));
     }
